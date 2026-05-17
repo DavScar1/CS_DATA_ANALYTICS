@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health & Sleep Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <ul class="nav">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <!-- Page Title -->
+    <div class="PageTitle">
+        <h1>Mental Health &amp; Sleep Analysis</h1>
+        <hr />
+        <p>CS Data Analysis Project 2026</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <h2>Investigating whether sleep duration and lifestyle factors predict happiness and mental health outcomes</h2>
+            <p>This project analyses a dataset of 3,000 participants to explore links between sleep, age, mental health conditions and self-reported happiness scores.</p>
+
+            <div class="page-grid" style="margin-top: 20px;">
+                <a href="/page1" class="page-tile">
+                    <div class="pg-label">01. Investigate</div>
+                    <h3>Researching the Brief</h3>
+                    <p>Topics explored, existing analyses, final idea</p>
+                </a>
+                <a href="/page2" class="page-tile">
+                    <div class="pg-label">02. Data</div>
+                    <h3>Collection &amp; Cleaning</h3>
+                    <p>Dataset, cleaning steps, CSV export</p>
+                </a>
+                <a href="/page3" class="page-tile">
+                    <div class="pg-label">03. Analysis</div>
+                    <h3>Mean, Median &amp; Mode</h3>
+                    <p>Descriptive stats for key columns</p>
+                </a>
+                <a href="/page4" class="page-tile">
+                    <div class="pg-label">04. Analysis</div>
+                    <h3>Line Graph</h3>
+                    <p>Happiness trends across age groups</p>
+                </a>
+                <a href="/page5" class="page-tile">
+                    <div class="pg-label">05. Analysis</div>
+                    <h3>Scatter Graph</h3>
+                    <p>Sleep vs happiness correlation</p>
+                </a>
+                <a href="/page6" class="page-tile">
+                    <div class="pg-label">06. Analysis</div>
+                    <h3>Bar Graph</h3>
+                    <p>Happiness by mental health condition</p>
+                </a>
+                <a href="/page7" class="page-tile">
+                    <div class="pg-label">07. Analysis</div>
+                    <h3>Pie Chart</h3>
+                    <p>Distribution of mental health conditions</p>
+                </a>
+                <a href="/page8" class="page-tile">
+                    <div class="pg-label">08. Analysis</div>
+                    <h3>Linear Regression</h3>
+                    <p>Sleep hours predicting happiness</p>
+                </a>
+                <a href="/page9" class="page-tile">
+                    <div class="pg-label">09. Summary</div>
+                    <h3>Conclusion &amp; References</h3>
+                    <p>Key findings and references</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+
+</body>
+</html>

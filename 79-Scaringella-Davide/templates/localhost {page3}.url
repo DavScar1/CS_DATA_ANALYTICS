@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 3 - Mean, Median & Mode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3" class="active">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <!-- Page Title -->
+    <div class="PageTitle">
+        <h1>Page 3: Mean, Median &amp; Mode</h1>
+        <hr />
+        <p>Calculating descriptive statistics for the key columns used in this analysis.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <div class="card">
+                <h2>Columns Being Analysed</h2>
+                <p>Two columns were selected for descriptive statistics as they are the core variables in this analysis:</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                    <div class="highlight"><strong>Sleep Hours</strong>: The independent variable:   how many hours per night each participant sleeps on average.</div>
+                    <div class="highlight"><strong>Happiness Score</strong>: The dependent variable: each participant's self-rated happiness on a scale of 0 to 10.</div>
+                </div>
+            </div>
+
+            <!-- BUTTON sends POST request to Flask server which runs the calculations -->
+            <div class="card">
+                <h2>Calculate Statistics</h2>
+                <p>Click the button below to calculate mean, median and mode for both columns.</p>
+                <br>
+
+                <!-- 'form' is like an envelope that sends a POST request to the Flask server -->
+                <form method="post">
+                    <button type="submit">Calculate Statistics</button>
+                </form>
+
+                <!-- Flask server runs the calculation and writes the results back here -->
+                <!-- Double curly braces display the values returned from Python -->
+                {% if sleep_mean %}
+                <br>
+                <div class="card" style="background-color: #f9f9f9; margin-top: 15px;">
+                    <h2>Sleep Hours Results</h2>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="label">Mean</div>
+                            <div class="value">{{ sleep_mean }}</div>
+                            <div class="sub">hours per night</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Median</div>
+                            <div class="value">{{ sleep_median }}</div>
+                            <div class="sub">hours per night</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Mode</div>
+                            <div class="value">{{ sleep_mode }}</div>
+                            <div class="sub">hours per night</div>
+                        </div>
+                    </div>
+                    <p>{{ sleep_interpretation }}</p>
+                </div>
+
+                <div class="card" style="background-color: #f9f9f9; margin-top: 15px;">
+                    <h2>Happiness Score Results</h2>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <div class="label">Mean</div>
+                            <div class="value">{{ happy_mean }}</div>
+                            <div class="sub">out of 10</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Median</div>
+                            <div class="value">{{ happy_median }}</div>
+                            <div class="sub">out of 10</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="label">Mode</div>
+                            <div class="value">{{ happy_mode }}</div>
+                            <div class="sub">out of 10</div>
+                        </div>
+                    </div>
+                    <p>{{ happy_interpretation }}</p>
+                </div>
+                {% endif %}
+
+            </div>
+
+            <div class="card">
+                <h2>Code Used</h2>
+                
+                <img src="{{ url_for('static', filename='page3_code.png') }}" alt="Screenshot of mean median mode code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+                <div class="highlight">
+                    <strong>Code Explanation:</strong> <code>mean()</code> adds all values together and divides by the count to find the average. <code>median()</code> sorts all values and returns the middle one, making it resistant to extreme outliers. <code>mode()[0]</code> returns the most frequently occurring value.  <code>[0]</code> is used because pandas returns a list in case there are multiple modes. All three are wrapped in <code>round(..., 2)</code> to display the result to 2 decimal places.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+
+</body>
+</html>

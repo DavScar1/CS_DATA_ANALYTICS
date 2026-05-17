@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 5 - Scatter Graph</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5" class="active">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <div class="PageTitle">
+        <h1>Page 5: Scatter Graph</h1>
+        <hr />
+        <p>Investigating the correlation between sleep hours and happiness score.</p>
+    </div>
+
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <div class="card">
+                <h2>What the Scatter Graph Represents</h2>
+                <p>This scatter graph plots each participant's sleep hours (x-axis) against their happiness score (y-axis). Each dot represents one participant. A trend line is overlaid to show the overall direction of the relationship between the two variables.</p>
+                <div class="stats-row" style="margin-top: 15px;">
+                    <div class="stat-box">
+                        <div class="label">Pearson r</div>
+                        <div class="value" style="font-size: 1.6rem;">0.021</div>
+                        <div class="sub">correlation coefficient</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">p-value</div>
+                        <div class="value" style="font-size: 1.6rem;">0.305</div>
+                        <div class="sub">not significant</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Relationship</div>
+                        <div class="value" style="font-size: 1.2rem; color: #ea580c;">Very Weak</div>
+                        <div class="sub"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Scatter Graph</h2>
+                <!-- Button sends POST request to Flask to generate the scatter graph -->
+                <form method="post">
+                    <button type="submit">Show Scatter Graph</button>
+                </form>
+                <!-- Flask generates graph, encodes as base64, passes back to display here -->
+                {% if graph %}
+                    <br>
+                    <img src="data:image/png;base64,{{ graph }}" alt="Scatter graph of sleep hours vs happiness score" style="max-width:100%; margin-top:10px;" />
+                    <p class="chart-caption">Figure 2: Sleep Hours vs Happiness Score (n = 2,405, r = 0.021)</p>
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h2>Code Used</h2>
+                
+                <img src="{{ url_for('static', filename='page5_code.png') }}" alt="Screenshot of scatter graph code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+                <div class="highlight">
+                    <strong>Code Explanation:</strong> <code>stats.pearsonr()</code> calculates the Pearson correlation coefficient (r) and p-value between sleep hours and happiness score. r measures the strength of the relationship and the p-value tells us whether the result is statistically significant. <code>ax.scatter()</code> plots each participant as a single dot. <code>np.polyfit()</code> calculates the slope and intercept of the best-fit trend line, which is then drawn using <code>ax.plot()</code> so the overall direction of the relationship is visible.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Patterns &amp; Interpretation</h2>
+                <div class="finding">
+                    <span class="pill">Correlation</span>
+                    <p>The Pearson correlation coefficient is <strong>r = 0.021</strong>, which indicates a very weak positive relationship between sleep hours and happiness score. A value of 0 means no relationship and 1 means a perfect positive relationship. 0.021 is extremely close to zero.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Significance</span>
+                    <p>The p-value of <strong>0.305</strong> is well above the standard significance threshold of 0.05. This means the result is <strong>not statistically significant</strong>. We cannot conclude that sleep hours reliably predicts happiness score in this dataset.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Pattern</span>
+                    <p>The scatter plot shows data points spread widely across all sleep durations with no clear clustering pattern. The trend line is nearly horizontal, visually confirming the lack of a meaningful relationship.</p>
+                </div>
+                <div class="highlight orange">
+                    <strong>Interpretation:</strong> Contrary to the original hypothesis, this analysis found no significant correlation between sleep hours and happiness score (r = 0.021, p = 0.305). This suggests that in this dataset, how long someone sleeps does not strongly predict how happy they are.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+</body>
+</html>

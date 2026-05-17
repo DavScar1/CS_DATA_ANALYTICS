@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 8 - Linear Regression</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8" class="active">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <div class="PageTitle">
+        <h1>Page 8: Linear Regression</h1>
+        <hr />
+        <p>Building a regression model to predict happiness score from sleep hours.</p>
+    </div>
+
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <div class="card">
+                <h2>What the Regression Represents</h2>
+                <p>Linear regression finds the best-fit straight line through the data to model the relationship between two variables. Here, sleep hours is the independent variable (x) and happiness score is the dependent variable (y). The regression equation tells us how much happiness score is predicted to change for each extra hour of sleep.</p>
+                <div class="stats-row" style="margin-top: 15px;">
+                    <div class="stat-box">
+                        <div class="label">Slope</div>
+                        <div class="value" style="font-size: 1.5rem;">0.036</div>
+                        <div class="sub">change per extra sleep hour</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Intercept</div>
+                        <div class="value" style="font-size: 1.5rem;">5.149</div>
+                        <div class="sub">predicted happiness at 0 hrs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">R²</div>
+                        <div class="value" style="font-size: 1.5rem;">0.0004</div>
+                        <div class="sub">variance explained</div>
+                    </div>
+                </div>
+                <div class="highlight" style="margin-top: 15px;">
+                    <strong>Regression Equation:</strong> y = 0.036x + 5.149. Ffor every extra hour of sleep, happiness score is predicted to increase by just 0.036 points.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Regression Chart</h2>
+                <!-- Button sends POST request to Flask to generate the regression chart -->
+                <form method="post">
+                    <button type="submit">Show Regression Chart</button>
+                </form>
+                <!-- Flask generates the chart and passes back the base64 image string -->
+                {% if graph %}
+                    <br>
+                    <img src="data:image/png;base64,{{ graph }}" alt="Linear regression chart of sleep hours vs happiness score" style="max-width:100%; margin-top:10px;" />
+                    <p class="chart-caption">Figure 5: Linear Regression - Sleep Hours vs Happiness Score (R² = 0.0004)</p>
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h2>Code Used</h2>
+                
+                <img src="{{ url_for('static', filename='page8_code.png') }}" alt="Screenshot of regression code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+                <div class="highlight">
+                    <strong>Code Explanation:</strong> <code>stats.linregress()</code> calculates the slope, intercept, r value, p-value and standard error of the best-fit straight line through the data. The slope tells us how much happiness changes per extra hour of sleep, and the intercept is the predicted happiness score at zero hours of sleep. R² is calculated as <code>r**2</code> and measures how much of the variation in happiness is explained by sleep hours. <code>ax.plot()</code> draws the regression line using the equation y = slope × x + intercept.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Interpretation</h2>
+                <div class="finding">
+                    <span class="pill">Variables</span>
+                    <p><strong>Independent variable:</strong> Sleep Hours (the variable I am using to make predictions.)<br>
+                    <strong>Dependent variable:</strong> Happiness Score (the variable I am trying to predict.)</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">R² Value</span>
+                    <p>The R² value of <strong>0.0004</strong> means that sleep hours explains only <strong>0.04% of the variation</strong> in happiness scores. This is extremely low, confirming that sleep hours alone is a very poor predictor of happiness in this dataset.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Slope</span>
+                    <p>The slope of 0.036 means that for every additional hour of sleep, happiness score is predicted to increase by just 0.036 points. An increase this small is practically meaningless in real terms.</p>
+                </div>
+                <div class="highlight orange">
+                    <strong>Interpretation:</strong> The linear regression confirms the findings from the scatter graph. There is no meaningful linear relationship between sleep hours and happiness score in this dataset. With an R² of 0.0004, sleep duration alone cannot be used to predict happiness.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+</body>
+</html>

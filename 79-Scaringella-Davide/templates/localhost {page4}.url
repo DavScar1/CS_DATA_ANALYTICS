@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 4 - Line Graph</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4" class="active">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <div class="PageTitle">
+        <h1>Page 4: Line Graph</h1>
+        <hr />
+        <p>Showing average happiness score trends across different age groups.</p>
+    </div>
+
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <div class="card">
+                <h2>What the Line Graph Represents</h2>
+                <p>This line graph shows the average happiness score for each age group in the dataset. Participants were grouped into five age brackets (18-25, 26-35, 36-45, 46-55, 56-65) and the mean happiness score was calculated for each group. This allows us to see whether happiness tends to increase or decrease as people get older.</p>
+            </div>
+
+            <div class="card">
+                <h2>Line Graph</h2>
+                <!-- Button sends a POST request to Flask which generates the graph in Python -->
+                <form method="post">
+                    <button type="submit">Show Line Graph</button>
+                </form>
+                <!-- Flask encodes the matplotlib chart as base64 and passes it back to display here -->
+                {% if graph %}
+                    <br>
+                    <img src="data:image/png;base64,{{ graph }}" alt="Line graph showing average happiness by age group" style="max-width:100%; margin-top:10px;" />
+                    <p class="chart-caption">Figure 1: Average Happiness Score by Age Group (n = 2,405)</p>
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h2>Code Used</h2>
+                
+                
+                <img src="{{ url_for('static', filename='page4_code.png') }}" alt="Screenshot of line graph code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+                <div class="highlight">
+                    <strong>Code Explanation:</strong> <code>pd.cut()</code> sorts each participant into an age bracket based on their age value. For example, anyone aged 26-35 is placed in the "26-35" group. <code>groupby()</code> then groups all rows by their age bracket, and <code>mean()</code> calculates the average happiness score for each group. <code>ax.plot()</code> draws the line graph, with <code>marker='o'</code> adding a circular dot at each data point to make the values easier to read.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Patterns &amp; Interpretation</h2>
+                <div class="finding">
+                    <span class="pill">Pattern</span>
+                    <p>The line graph shows that average happiness scores remain relatively stable across all age groups, fluctuating only slightly between roughly 5.2 and 5.6 out of 10. There is no strong upward or downward trend with age.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Finding</span>
+                    <p>The 26-35 age group has a slightly higher average happiness score compared to other groups, while the 46-55 group is the lowest. This could suggest that middle-career stress impacts happiness, while older adults may experience greater life satisfaction.</p>
+                </div>
+                <div class="highlight orange">
+                    <strong>Interpretation:</strong> Age does not appear to be a strong predictor of happiness in this dataset. The relatively flat line suggests that other factors such as mental health condition or stress level may have a stronger influence on happiness than age alone.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+</body>
+</html>

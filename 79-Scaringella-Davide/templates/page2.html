@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 2 - Data Collection & Cleaning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2" class="active">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <!-- Page Title -->
+    <div class="PageTitle">
+        <h1>Page 2: Data Collection &amp; Cleaning</h1>
+        <hr />
+        <p>Describing the dataset used, why it was chosen, and the cleaning steps performed.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <!-- DATASET DESCRIPTION -->
+            <div class="card">
+                <h2>Dataset Description</h2>
+
+                <h3>What the Dataset Contains</h3>
+                <p>The dataset is titled <strong>"Mental Health and Lifestyle Habits (2019–2024)"</strong> by Atharva Soundankar, available on Kaggle. It contains survey-style data collected from 3,000 individuals across multiple countries and years. The dataset includes the following 12 columns:</p>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr><th>Column</th><th>Description</th><th>Type</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Country</td><td>Participant's country of residence</td><td>Text</td></tr>
+                        <tr><td>Age</td><td>Participant's age in years</td><td>Numeric</td></tr>
+                        <tr><td>Gender</td><td>Male / Female / Other</td><td>Text</td></tr>
+                        <tr><td>Exercise Level</td><td>Low / Moderate / High</td><td>Text</td></tr>
+                        <tr><td>Diet Type</td><td>Balanced / Vegan / Vegetarian / Keto / Junk Food</td><td>Text</td></tr>
+                        <tr><td>Sleep Hours</td><td>Average nightly sleep in hours</td><td>Numeric</td></tr>
+                        <tr><td>Stress Level</td><td>Low / Moderate / High</td><td>Text</td></tr>
+                        <tr><td>Mental Health Condition</td><td>None / Anxiety / Depression / Bipolar / PTSD</td><td>Text</td></tr>
+                        <tr><td>Work Hours per Week</td><td>Average weekly work hours</td><td>Numeric</td></tr>
+                        <tr><td>Screen Time per Day (Hours)</td><td>Daily screen time in hours</td><td>Numeric</td></tr>
+                        <tr><td>Social Interaction Score</td><td>Self-rated social interaction (0-10)</td><td>Numeric</td></tr>
+                        <tr><td>Happiness Score</td><td>Self-rated happiness (0-10)</td><td>Numeric</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Why This Data Was Chosen</h3>
+                <p>This dataset was chosen because it directly contains both sleep-related variables (Sleep Hours) and mental health outcome variables (Happiness Score, Mental Health Condition) in the same dataset, making it ideal for my analysis. It is well-structured, publicly available, covers a multi-year period (2019–2024), and includes a large sample of 3,000 participants across 7 countries, adding credibility to the findings.</p>
+
+                <h3>Source of the Data</h3>
+                <div class="highlight">
+                    <strong>Source:</strong> Kaggle -publicly available data science platform<br>
+                    <strong>Dataset:</strong> Mental Health and Lifestyle Habits 2019-2024<br>
+                    <strong>Author:</strong> Atharva Soundankar<br>
+                    <strong>URL:</strong> kaggle.com/datasets/atharvasoundankar/mental-health-and-lifestyle-habits-2019-2024
+                </div>
+            </div>
+
+            <!-- BEFORE AND AFTER -->
+            <div class="card">
+                <h2>Dataset Before &amp; After Cleaning</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <div>
+                        <h3>Before Cleaning</h3>
+                        <img src="{{ url_for('static', filename='page2_before.png') }}" alt="Screenshot of raw CSV before cleaning" style="max-width:100%; border-radius:5px;">
+                    </div>
+                    <div>
+                        <h3>After Cleaning</h3>
+                        <img src="{{ url_for('static', filename='page2_after.png') }}" alt="Screenshot of cleaned CSV after cleaning" style="max-width:100%; border-radius:5px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLEANING CODE -->
+            <div class="card">
+                <h2>Cleaning Code &amp; Explanation</h2>
+
+                <img src="{{ url_for('static', filename='page2_code.png') }}" alt="Screenshot of cleaning code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+               
+
+                
+                
+
+                <h3>How the Cleaning Worked</h3>
+                <div class="finding">
+                    <span class="pill">Step 1</span>
+                    <p><strong>Remove duplicates</strong> - <code>drop_duplicates()</code> checks every row and removes any exact copies, preventing the same data point from being counted twice and skewing results.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Step 2</span>
+                    <p><strong>Drop missing values</strong> - <code>dropna()</code> removes rows where any of the four most important columns are empty. This reduced the dataset from 3,000 to 2,405 rows.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Step 3</span>
+                    <p><strong>Standardise text</strong> - <code>.str.lower().str.strip()</code> converts all text to lowercase and removes extra spaces, so "Male" and " male" are treated as the same value.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Step 4</span>
+                    <p><strong>Rename columns</strong> - <code>.str.replace(' ', '_')</code> removes spaces from column headers, making them easier to reference in Python code.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Step 5</span>
+                    <p><strong>Remove out-of-range values</strong> - filters out any rows where sleep hours fall outside 0-24 or happiness scores fall outside 0–10, removing clearly erroneous data entries.</p>
+                </div>
+
+                <div class="highlight green" style="margin-top: 15px;">
+                    <strong>Exported Filename:</strong> cleaned_mental_health.csv
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+
+</body>
+</html>

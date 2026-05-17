@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 1 - Researching the Brief</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1" class="active">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <!-- Page Title -->
+    <div class="PageTitle">
+        <h1>Page 1: Researching the Brief</h1>
+        <hr />
+        <p>Exploring the general area, three possible topics, existing solutions, and final project idea.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <!-- PART A -->
+            <div class="card">
+                <h2>Part A: Researching the Brief</h2>
+
+                <h3>General Area of Analysis</h3>
+                <p>My general area of analysis is Health &amp; Lifestyle. Specifically, how everyday habits such as sleep, diet, physical activity, and mental wellbeing interact and affect overall health outcomes.</p>
+
+                <h3>Why This Area Appeals to Me</h3>
+                <p>Health and lifestyle is an area that affects everyone directly, making findings immediately relatable and meaningful. I am personally interested in health &amp; fitness. I have been wondering how small daily habits (such as how much we sleep) can have a compounding effect on my health over time.</p>
+
+                <h3>Three Possible Topics</h3>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <div class="num">Topic 1 (Chosen)</div>
+                        <h4>Sleep Quality &amp; Mental Health</h4>
+                        <p><strong>Topic:</strong> The relationship between sleep patterns and mental health indicators such as anxiety, depression and happiness.</p>
+                        <p style="margin-top:0.5rem"><strong>Interest:</strong> I haven't been getting a lot of sleep recently and I want to find out if it'll have a big impact on my mental health and happiness.</p>
+                        <p style="margin-top:0.5rem"><strong>Purpose:</strong> To determine whether sleep duration is a reliable predictor of happiness and mental health outcomes.</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="num">Topic 2</div>
+                        <h4>Diet, Exercise &amp; BMI</h4>
+                        <p><strong>Topic:</strong> How diet quality and physical activity levels correlate with weight status.</p>
+                        <p style="margin-top:0.5rem"><strong>Interest:</strong> I am curious whether the phrase "You can't out train a bad diet, but you can outdiet bad training" is accurate.</p>
+                        <p style="margin-top:0.5rem"><strong>Purpose:</strong> To identify which factor (diet or exercise) shows a stronger association with healthy weight outcomes.</p>
+                    </div>
+                    <div class="topic-card">
+                        <div class="num">Topic 3</div>
+                        <h4>Lifestyle &amp; Diabetes Risk</h4>
+                        <p><strong>Topic:</strong> Which lifestyle indicators are most associated with diabetes or pre-diabetes diagnoses.</p>
+                        <p style="margin-top:0.5rem"><strong>Interest:</strong> I have a lot of extended family that have type 2 diabetes and I am curious about what habits may have caused it.</p>
+                        <p style="margin-top:0.5rem"><strong>Purpose:</strong> To identify the strongest lifestyle predictors of diabetes risk.</p>
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <strong>Citations:</strong> Kaggle -Mental Health and Lifestyle Habits 2019–2024 (Atharva Soundankar) · CDC Behavioral Risk Factor Surveillance System · Diabetes Health Indicators Dataset (UCI ML Repository)
+                </div>
+            </div>
+
+            <!-- PART B -->
+            <div class="card">
+                <h2>Part B: Existing Solutions</h2>
+
+                <div class="solution-card">
+                    <div class="sol-title">1. PMC Meta-Analysis - Sleep Quality &amp; Mental Health (1998–2024)</div>
+                    <div style="padding: 10px 15px;">
+                        <div class="sol-row"><span class="sol-label">Purpose</span><span class="sol-text">To evaluate the overall effect of improving sleep quality on mental health outcomes including depression, anxiety, and stress in adults.</span></div>
+                        <div class="sol-row"><span class="sol-label">Data</span><span class="sol-text">54 papers involving 10,196 adults (1998-2024). Data came from validated questionnaire scores measuring sleep quality alongside depression, anxiety, and stress levels.</span></div>
+                        <div class="sol-row"><span class="sol-label">Conclusion</span><span class="sol-text">Improving sleep quality significantly reduced depression and anxiety, though no significant difference was found in stress levels compared to standard care.</span></div>
+                    </div>
+                </div>
+
+                <div class="solution-card">
+                    <div class="sol-title">2. National Sleep Foundation - Sleep in America Poll (2023)</div>
+                    <div style="padding: 10px 15px;">
+                        <div class="sol-row"><span class="sol-label">Purpose</span><span class="sol-text">To investigate the association between sleep duration and satisfaction with depressive symptoms in the general US adult population.</span></div>
+                        <div class="sol-row"><span class="sol-label">Data</span><span class="sol-text">A national probability-based sample collecting self-reported sleep duration, satisfaction, and PHQ-9 depression scale scores.</span></div>
+                        <div class="sol-row"><span class="sol-label">Conclusion</span><span class="sol-text">People who slept the recommended 7-9 hours were nearly 50% more likely to be free from elevated depressive symptoms. Those dissatisfied with sleep were nearly eight times as likely to experience moderate-to-severe depression.</span></div>
+                    </div>
+                </div>
+
+                <div class="solution-card">
+                    <div class="sol-title">3. SleepFoundation.org - Sleep Quality &amp; Mental Health Survey (2024)</div>
+                    <div style="padding: 10px 15px;">
+                        <div class="sol-row"><span class="sol-label">Purpose</span><span class="sol-text">To explore how self-rated mental health relates to sleep quantity and quality in everyday adults.</span></div>
+                        <div class="sol-row"><span class="sol-label">Data</span><span class="sol-text">A survey of 1,000 US adults (April 2024) collecting self-rated mental health, nightly sleep hours, and subjective sleep quality ratings.</span></div>
+                        <div class="sol-row"><span class="sol-label">Conclusion</span><span class="sol-text">People with below-average mental health slept nearly an hour less per night than those with above-average mental health and were three times as likely to rate their sleep quality as poor or very poor.</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART C -->
+            <div class="card">
+                <h2>Part C: How Research Informed My Choice</h2>
+
+                <div class="finding">
+                    <span class="pill">Point 1</span>
+                    <p>Because my research showed that sleep duration and subjective sleep quality scores are the most commonly measured variables in existing studies, I decided to focus my analysis on these same variables using the Kaggle dataset, as they are already included and well-documented.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Point 2</span>
+                    <p>Because my research showed that happiness and mental health condition are the outcomes most consistently linked to sleep in large-scale studies, I decided to use happiness score and mental health condition as the key output variables in my analysis.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Point 3</span>
+                    <p>Because my research showed that existing studies tend to use large clinical trial datasets, I decided that using a publicly available Kaggle lifestyle dataset would offer a different, more accessible angle, allowing me to explore the same relationships in everyday, non-clinical survey data.</p>
+                </div>
+            </div>
+
+            <!-- PART D -->
+            <div class="card">
+                <h2>Part D: Final Idea</h2>
+                <div class="highlight green">
+                    <strong>Final Project Idea:</strong> I will analyse a Kaggle dataset on mental health and lifestyle habits to investigate whether sleep duration and stress level are associated with happiness score and mental health condition across 3,000 participants from seven countries.
+                </div>
+                <div class="highlight orange">
+                    <strong>Limitation:</strong> The dataset relies entirely on self-reported data, which may be inaccurate as participants may over- or under-estimate their sleep hours, stress levels, and mental health scores.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+
+</body>
+</html>

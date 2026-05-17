@@ -1,0 +1,517 @@
+/* Basic Page Styling */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef3f3;
+    text-align: center;
+}
+
+/* =====================
+   NAVIGATION BAR
+   Using Flexbox (display: flex) - as taught in style.css
+   ===================== */
+.nav {
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    background-color: #2c3e50;
+    display: flex;               /* Flexbox - as taught */
+    justify-content: center;     /* Centre the nav links */
+    gap: 20px;                   /* Gap between links - as taught */
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    background-color: teal;      /* Coloured button-style links - as taught */
+    padding: 10px 20px;
+    border-radius: 5px;          /* Rounded corners - as taught */
+}
+
+.nav a:hover {
+    background-color: cyan;      /* Hover effect - as taught */
+    color: #1a1a18;
+}
+
+.nav a.active {
+    background-color: #1abc9c;   /* Slightly brighter teal for active page */
+    font-weight: bold;
+}
+
+/* =====================
+   PAGE LAYOUT - CSS GRID
+   Using Grid (display: grid) - as taught in style1.css
+   ===================== */
+.pageGrid {
+    display: grid;                              /* Grid layout - as taught */
+    grid-template-columns: 1fr 2fr;             /* Two columns - as taught */
+    grid-template-rows: auto;
+    gap: 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Page Title spans both columns - as taught with grid-column span */
+.PageTitle {
+    grid-column: 1 / span 2;    /* Span across both columns - as taught */
+    margin: 30px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.PageTitle h1 {
+    margin-bottom: 10px;
+}
+
+.PageTitle hr {
+    width: 60%;
+}
+
+/* =====================
+   MAIN CONTENT
+   ===================== */
+.HomePageMainContent {
+    grid-column: 1 / span 2;    /* Span both columns - as taught */
+    margin: 20px auto;
+    width: 80%;
+    text-align: left;
+}
+
+.About {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* =====================
+   BUTTON STYLING
+   ===================== */
+button {
+    padding: 10px 20px;
+    background-color: teal;      /* Consistent with navbar colour scheme */
+    color: white;
+    border: none;
+    border-radius: 5px;          /* Matching border-radius - as taught */
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: cyan;      /* Matching hover colour - as taught */
+    color: #1a1a18;
+}
+
+/* =====================
+   FOOTER
+   Spans both columns - as taught with .footer in style1.css
+   ===================== */
+.footer {
+    grid-column: 1 / span 2;    /* Span both columns - as taught */
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;          /* .textFooter pattern - as taught */
+}
+
+/* =====================
+   HOME PAGE GRID (index.html)
+   ===================== */
+.page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 equal columns - as taught */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.page-tile {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    text-decoration: none;
+    background-color: #f9f9f9;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.page-tile:hover {
+    background-color: #e0f7f4;
+    border-color: teal;
+}
+
+.page-tile .pg-label {
+    font-size: 0.7rem;
+    color: teal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.page-tile h3 {
+    font-size: 0.95rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.page-tile p {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0;
+}
+
+/* =====================
+   CONTENT CARDS
+   ===================== */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #999;
+    margin: 15px 0 6px;
+}
+
+.card h4 {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.7;
+}
+
+/* =====================
+   STATS ROW
+   ===================== */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   /* 3 equal columns - as taught */
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stat-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.stat-box .label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.stat-box .value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.stat-box .sub {
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-top: 3px;
+}
+
+/* =====================
+   CHART
+   ===================== */
+.chart-container,
+.chart-wrap {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: white;
+    text-align: center;
+}
+
+.chart-container img,
+.chart-wrap img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.chart-title,
+.chart-caption {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* =====================
+   CODE BLOCK
+   ===================== */
+.code-block,
+.code {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #d4d0c8;
+    overflow-x: auto;
+    margin: 10px 0;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.code-block .keyword, .code .k { color: #79b8ff; }
+.code-block .func,    .code .f { color: #98d687; }
+.code-block .string,  .code .s { color: #f0a07a; }
+.code-block .comment, .code .c { color: #6a6a6a; font-style: italic; }
+
+/* =====================
+   FINDING / PILL
+   ===================== */
+.finding {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.finding:last-child { border-bottom: none; }
+
+.finding p {
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.pill,
+.finding .tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: bold;
+    color: teal;
+    background-color: #e0f7f4;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* =====================
+   HIGHLIGHT BOXES
+   ===================== */
+.highlight {
+    background-color: #f0f9ff;
+    border-left: 4px solid teal;
+    border-radius: 0 4px 4px 0;
+    padding: 12px 15px;
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.65;
+    margin: 10px 0;
+}
+
+.highlight.green {
+    background-color: #f0fdf4;
+    border-left-color: #16a34a;
+}
+
+.highlight.orange {
+    background-color: #fff7ed;
+    border-left-color: #ea580c;
+}
+
+/* =====================
+   SCREENSHOT PLACEHOLDER
+   ===================== */
+.screenshot-box,
+.screenshot {
+    border: 2px dashed #ddd;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    background-color: #fafafa;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.screenshot-box .icon,
+.screenshot .icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* =====================
+   TABLE
+   ===================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+th {
+    text-align: left;
+    padding: 8px 10px;
+    background-color: #f4f4f4;
+    color: #555;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    color: #374151;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background-color: #f9f9f9; }
+
+/* =====================
+   TOPIC GRID (page1)
+   ===================== */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   /* 3 columns - as taught */
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.topic-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.topic-card .num {
+    font-size: 0.65rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: teal;
+    margin-bottom: 6px;
+}
+
+.topic-card h4 {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.topic-card p {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =====================
+   SOLUTION CARD (page1)
+   ===================== */
+.solution-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.sol-title,
+.sol-head {
+    padding: 10px 15px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: left;
+}
+
+.sol-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;   /* Two columns - as taught */
+    gap: 10px;
+    font-size: 0.82rem;
+    padding: 5px 15px;
+    text-align: left;
+}
+
+.sol-label,
+.sol-key {
+    font-size: 0.65rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: teal;
+    padding-top: 1px;
+}
+
+.sol-text,
+.sol-val {
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* =====================
+   REFERENCES
+   ===================== */
+.ref-list { list-style: none; padding: 0; }
+
+.ref-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.85rem;
+    color: #374151;
+    line-height: 1.65;
+    text-align: left;
+}
+
+.ref-list li:last-child { border-bottom: none; }
+.ref-list a { color: teal; text-decoration: none; }
+.ref-list a:hover { text-decoration: underline; }
+
+/* =====================
+   MISC
+   ===================== */
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: teal;
+}
+
+strong { color: #1c1b18; font-weight: bold; }
+
+img { max-width: 100%; }

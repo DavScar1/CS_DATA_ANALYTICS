@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 7 - Pie Chart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7" class="active">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <div class="PageTitle">
+        <h1>Page 7: Pie Chart</h1>
+        <hr />
+        <p>Showing the distribution of mental health conditions across all participants.</p>
+    </div>
+
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <div class="card">
+                <h2>What the Pie Chart Represents</h2>
+                <p>This pie chart shows the proportion of participants reporting each mental health condition in the dataset. The five categories are: None, Anxiety, Depression, Bipolar, and PTSD. This gives a clear picture of how common each condition is within the 2,405 participants analysed.</p>
+            </div>
+
+            <div class="card">
+                <h2>Pie Chart</h2>
+                <!-- Button sends POST request to Flask to generate the pie chart -->
+                <form method="post">
+                    <button type="submit">Show Pie Chart</button>
+                </form>
+                <!-- Flask generates the chart and passes back the base64 image string -->
+                {% if graph %}
+                    <br>
+                    <img src="data:image/png;base64,{{ graph }}" alt="Pie chart of mental health condition distribution" style="max-width:100%; margin-top:10px;" />
+                    <p class="chart-caption">Figure 4: Distribution of Mental Health Conditions (n = 2,405)</p>
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h2>Code Used</h2>
+                
+                <img src="{{ url_for('static', filename='page7_code.png') }}" alt="Screenshot of pie chart code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+                <div class="highlight">
+                    <strong>Code Explanation:</strong> <code>value_counts()</code> counts how many participants fall into each mental health condition category. <code>ax.pie()</code> draws the chart where the size of each slice is proportional to its count. <code>autopct='%1.1f%%'</code> automatically calculates and displays the percentage for each slice to one decimal place. <code>startangle=140</code> rotates the chart so the slices are arranged in a readable position.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Highest, Lowest &amp; Interpretation</h2>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="label">Largest Category</div>
+                        <div class="value" style="font-size: 1.2rem; color: #16a34a;">Anxiety</div>
+                        <div class="sub">Most common in dataset</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Smallest Category</div>
+                        <div class="value" style="font-size: 1.2rem; color: #ea580c;">Bipolar</div>
+                        <div class="sub">Least common condition</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Conditions</div>
+                        <div class="value">5</div>
+                        <div class="sub">total categories</div>
+                    </div>
+                </div>
+                <div class="finding" style="margin-top: 15px;">
+                    <span class="pill">Finding</span>
+                    <p>The pie chart shows that mental health conditions are fairly evenly distributed across the dataset, with no single condition dominating. The relatively even split means that comparisons between conditions in the bar graph are fair and reliable.</p>
+                </div>
+                <div class="highlight">
+                    <strong>Interpretation:</strong> The dataset captures a diverse range of mental health conditions with no major imbalance between groups. This makes comparisons between conditions in the bar graph more reliable, as each group has sufficient data to calculate a meaningful average happiness score.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+</body>
+</html>

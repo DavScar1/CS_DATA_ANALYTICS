@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 6 - Bar Graph</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6" class="active">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9">Page 9</a></li>
+    </ul>
+
+    <div class="PageTitle">
+        <h1>Page 6: Bar Graph</h1>
+        <hr />
+        <p>Comparing average happiness scores across different mental health conditions.</p>
+    </div>
+
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <div class="card">
+                <h2>What the Bar Graph Represents</h2>
+                <p>This bar graph shows the average happiness score for each mental health condition reported in the dataset. The conditions are: None, Anxiety, Depression, Bipolar, and PTSD. Each bar represents the mean happiness score for all participants with that condition.</p>
+            </div>
+
+            <div class="card">
+                <h2>Bar Graph</h2>
+                <!-- Button sends POST request to Flask to generate the bar chart -->
+                <form method="post">
+                    <button type="submit">Show Bar Graph</button>
+                </form>
+                <!-- Flask generates the chart and passes back the base64 image string -->
+                {% if graph %}
+                    <br>
+                    <img src="data:image/png;base64,{{ graph }}" alt="Bar graph of average happiness by mental health condition" style="max-width:100%; margin-top:10px;" />
+                    <p class="chart-caption">Figure 3: Average Happiness Score by Mental Health Condition (n = 2,405)</p>
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h2>Code Used</h2>
+                
+                <img src="{{ url_for('static', filename='page6_code.png') }}" alt="Screenshot of bar graph code" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+                <div class="highlight">
+                    <strong>Code Explanation:</strong> <code>groupby()</code> groups all participants by their mental health condition, and <code>mean()</code> calculates the average happiness score for each group. <code>sort_values(ascending=False)</code> orders the conditions from highest to lowest average happiness so the bar graph is easier to read. <code>ax.bar()</code> draws one bar per condition, with each bar coloured using the palette dictionary defined at the top of the file.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Highest, Lowest &amp; Interpretation</h2>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="label">Highest</div>
+                        <div class="value" style="font-size: 1.3rem; color: #16a34a;">None</div>
+                        <div class="sub">No mental health condition</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Lowest</div>
+                        <div class="value" style="font-size: 1.3rem; color: #dc2626;">Depression</div>
+                        <div class="sub">Lowest average happiness</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Range</div>
+                        <div class="value" style="font-size: 1.4rem;">~0.4</div>
+                        <div class="sub">points difference</div>
+                    </div>
+                </div>
+                <div class="finding" style="margin-top: 15px;">
+                    <span class="pill">Finding</span>
+                    <p>Participants reporting <strong>no mental health condition</strong> had the highest average happiness score, while those with <strong>Depression</strong> had the lowest. This is the most meaningful pattern found across all charts in this project.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Pattern</span>
+                    <p>The differences between conditions are relatively small (approximately 0.4 points), suggesting that while mental health condition is associated with happiness, the relationship is not dramatically large, possibly because happiness is influenced by many other factors simultaneously.</p>
+                </div>
+                <div class="highlight green">
+                    <strong>Interpretation:</strong> Mental health condition shows the clearest relationship with happiness score of all variables analysed. Participants with no diagnosed condition are measurably happier on average than those with depression, bipolar disorder, anxiety, or PTSD. This supports existing research linking mental health diagnoses to reduced wellbeing.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+</body>
+</html>

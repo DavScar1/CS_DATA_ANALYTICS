@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 9 - Conclusion & References</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePageStyle.css') }}">
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/page1">Page 1</a></li>
+        <li><a href="/page2">Page 2</a></li>
+        <li><a href="/page3">Page 3</a></li>
+        <li><a href="/page4">Page 4</a></li>
+        <li><a href="/page5">Page 5</a></li>
+        <li><a href="/page6">Page 6</a></li>
+        <li><a href="/page7">Page 7</a></li>
+        <li><a href="/page8">Page 8</a></li>
+        <li><a href="/page9" class="active">Page 9</a></li>
+    </ul>
+
+    <div class="PageTitle">
+        <h1>Page 9: Conclusion &amp; References</h1>
+        <hr />
+        <p>Summarising the three most important findings and suggesting future research directions.</p>
+    </div>
+
+    <div class="HomePageMainContent">
+        <div class="About" style="font-family: Arial, sans-serif;">
+
+            <!-- FINDINGS -->
+            <div class="card">
+                <h2>Three Most Important Findings</h2>
+                <div class="finding">
+                    <span class="pill">Finding 1</span>
+                    <p><strong>Mental health condition is the strongest predictor of happiness in this dataset.</strong> The bar graph (Page 6) showed that participants with no mental health condition had the highest average happiness score, while those with depression had the lowest. This was the clearest and most meaningful pattern found across all analysis pages.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Finding 2</span>
+                    <p><strong>Sleep hours has no significant relationship with happiness score.</strong> The scatter graph (Page 5) produced a Pearson correlation of r = 0.021 with a p-value of 0.305. This is well above the 0.05 significance threshold. The linear regression (Page 8) confirmed this with an R² of just 0.0004, meaning sleep hours explains less than 0.1% of the variation in happiness.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Finding 3</span>
+                    <p><strong>The average participant sleeps slightly below the recommended amount.</strong> The mean sleep duration of 6.47 hours (Page 3) is below the NHS-recommended 7–9 hours. Despite this, no relationship with happiness was found, suggesting that slight sleep deprivation may not be the primary driver of reduced wellbeing in this dataset.</p>
+                </div>
+            </div>
+
+            <!-- UNEXPECTED PATTERNS -->
+            <div class="card">
+                <h2>Unexpected Patterns in the Data</h2>
+                <div class="highlight orange">
+                    <p>The most unexpected finding was the lack of correlation between sleep and happiness. Prior to analysis, it was hypothesised (& supported by existing research) that more sleep would be associated with higher happiness scores. However, the data showed almost no relationship (r = 0.021). This contradicts well-established findings from clinical studies, and may be due to the self-reported nature of the dataset, or because happiness is shaped by so many factors simultaneously that sleep alone cannot stand out as a predictor.</p>
+                </div>
+                <p style="margin-top: 15px;">Additionally, the mode happiness score of 2.90 was notably lower than both the mean (5.38) and median (5.40), hinting that there may be a cluster of particularly unhappy participants in the dataset that deserves further investigation.</p>
+            </div>
+
+            <!-- FUTURE RESEARCH -->
+            <div class="card">
+                <h2>Future Research Questions</h2>
+                <div class="finding">
+                    <span class="pill">Question 1</span>
+                    <p>Does a <strong>combination of sleep hours AND stress level</strong> together predict happiness better than either variable alone? A multiple regression model could test this.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Question 2</span>
+                    <p>Are there <strong>country-level differences</strong> in the sleep-happiness relationship? Some cultures may have different attitudes to sleep, work, and wellbeing that could produce different results when analysed separately.</p>
+                </div>
+                <div class="finding">
+                    <span class="pill">Question 3</span>
+                    <p>Would <strong>objectively measured sleep data</strong> (e.g. from wearable devices) show a stronger relationship with happiness than self-reported sleep hours, addressing the key limitation of this dataset?</p>
+                </div>
+            </div>
+
+            <!-- REFERENCES -->
+            <div class="card">
+                <h2>References</h2>
+                <ul class="ref-list">
+                    <li>Soundankar, A. (2024). <em>Mental Health and Lifestyle Habits 2019–2024</em> [Dataset]. Kaggle. <a href="https://www.kaggle.com/datasets/atharvasoundankar/mental-health-and-lifestyle-habits-2019-2024" target="_blank">kaggle.com/datasets/atharvasoundankar</a></li>
+                    <li>Scott, A. J., Webb, T. L., &amp; Rowse, G. (2024). <em>Does improving sleep lead to better mental health?</em> PubMed Central Meta-Analysis (1998–2024). National Library of Medicine.</li>
+                    <li>National Sleep Foundation. (2023). <em>Sleep in America Poll: Sleep and Mental Health.</em> sleepfoundation.org</li>
+                    <li>SleepFoundation.org. (2024). <em>Sleep Quality and Mental Health Survey</em> [Survey of 1,000 US adults]. April 2024.</li>
+                    <li>NHS. (2023). <em>How much sleep do I need?</em> National Health Service. nhs.uk/live-well/sleep-and-tiredness</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>5th Year Data Analytics CS Project</p>
+    </div>
+</body>
+</html>
